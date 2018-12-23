@@ -40,17 +40,18 @@ def sentence_divider(text):
 
   for index,word in enumerate(quotation_enders):
     read = read.replace(word,quotation_corrected[index]) #this is what you want to remove if you want to consider full sentences within a quation as one sentence. It replaces quotation enders with spelled names of the punctuations so they won't be split as a sentence
+#you may also remove this part if your text contains long sections of exchanges in quations, since the code will consider that as once sentences.
 
   for ender in enders: 
     read=read.replace(ender,ender + "<stop>") #this adds a stop to all punctuations that  actually end a sentence.
 
   for index,word in enumerate(corrected_false_enders):
     read=read.replace(word,false_enders[index])
-    #switches the spelled names of false enders to the  punctuation signs.
+    #switches the spelled names of false enders to the  punctuation signs. You need to remove this if you removed lines 38-39.
 
   for index,word in enumerate(string_punctuations):
     read=read.replace(word,quotation_enders[index])
-    #switches the spelled names of the quatation enders back to the quotation enders.
+    #switches the spelled names of the quatation enders back to the quotation enders. You need to remove this if you removed lines 42-43
 
   sentences=read.split("<stop>") #splits the sentence everywhere there is a <stop>. If the code accounted for all edge cases, those places will be where we want a sentence to end.
 
