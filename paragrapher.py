@@ -4,7 +4,10 @@ input_file: name of of the text file.
 word: which word you are looking for.
 count: how many sentences before and after the target word you want to write in the file.
 output_name: the name of the output file.
+The function takes list of sentences (using a sentencer function), and writes a file with the sentences containing a word, 
+plus a number of sentences before and after the target sentence
 """
+
 def paragrapher(input_file,word,count,output_name):
 
   if count == None: #if the user does not specify a count, the code will asume they wonly want the sentences with the word, and no preceeding or succeeding sentence
